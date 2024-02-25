@@ -1,0 +1,71 @@
+section{
+    width: 90%;
+    margin-left: 5%;
+    border:  1px solid rgb(229, 231, 235);
+    padding: 5px 10px;
+}
+
+
+#newAccount h1 {
+    color: rgb(36, 39, 42);
+    font-weight: 800;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+#newAccount #warning{
+    color: rgb(129, 129, 134);
+    margin-bottom:  40px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+#accout-input{
+    margin-bottom: 20px;
+}
+
+#accout-input label{
+    display: inline-block;
+    color: rgb(129, 129, 134);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+#accout-input input{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#accout-input p{
+    font-size: 12px;
+}
+
+#account-warning{
+    color: rgb(171, 171, 171);
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.3;
+    margin-bottom: 30px;
+}
+
+#account-warning ul p{
+    margin-bottom: 10px;
+}
+
+#account-warning ul li{
+    margin-left: 20px;
+}
+
+#accout-btn{
+    text-align: center;
+    background-color: rgb(21, 130, 227);
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
