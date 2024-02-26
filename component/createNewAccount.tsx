@@ -30,6 +30,8 @@ export const CreateNewAccountId = () => {
             token: token
         })
 
+        console.log('ap1', api)
+
         const response = await api.json()
 
         const responseStatus = response.status

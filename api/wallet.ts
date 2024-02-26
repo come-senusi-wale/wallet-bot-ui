@@ -1,6 +1,6 @@
 // import { axiosInstance } from "./axios"
 
-const baseUrl = 'http://localhost:5000/api'
+const baseUrl = 'http://localhost:8000/api'
 
 // export const createWallet = (body: any) => {
 //     return axiosInstance().post("/create_account", body);
