@@ -1,12 +1,9 @@
 "use client"
-import React, { useState } from 'react'
-import logo from "./../public/image/logo.jpg";
-import { FaBars, FaTimes } from "react-icons/fa";
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react'
 import  "../style/createNewAccount.css";
-import { createNewWallet } from "@/api/wallet";
+import  "../style/tailwind.css";
+import { createNewWallet, checkAccount, network } from "@/api/wallet";
 import { toast } from 'react-toastify'
-import { Console } from 'console';
 
 export const CreateNewAccountId = () => {
     const queryParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
@@ -15,38 +12,100 @@ export const CreateNewAccountId = () => {
     const token = queryParams ? queryParams.get('token') : '';
 
     const [accountId, setAccountId] = useState('')
+    const [accountIdText, setAccountIdText] = useState('')
+    const [accountstatus, setAccountStatus] = useState(false)
+    const [openaAccountStatus, setOpenAccountStatus] = useState(false)
 
-    const handleCreateAccount = async() => {
+    const accountInputHandler = (e: any) => {
+        if(!accountId || accountId == '') {
+            setOpenAccountStatus(false)
+        }
+
+        const account = e.target.value
+        let accountIdText = account
+
+        const indexOfFullStop = account.indexOf('.');
+
+        if (indexOfFullStop < 1) {
+            accountIdText = `${account}.${network}`
+        }else{
+            // Get the first part of the word before the full stop
+            const firstPart = account.substring(0, indexOfFullStop);
+            accountIdText = `${firstPart}.${network}`
+        }
+        setAccountIdText(accountIdText)
+        setAccountId(account)
+    }
+
+    const checkAccountExist = async () => {
         if(!accountId) {
-            alert('empty')
-            toast.error("provide account ID", {
-                position: toast.POSITION.TOP_RIGHT
-            });
             return;
         }
 
-        const api = await createNewWallet({
-            accountId: accountId, 
-            token: token
-        })
+        // let accountIdText = accountId
 
-        console.log('ap1', api)
+        // const indexOfFullStop = accountId.indexOf('.');
+
+        // if (indexOfFullStop < 1) {
+        //     accountIdText = `${accountId}.${network}`
+        // }else{
+        //     // Get the first part of the word before the full stop
+        //     const firstPart = accountId.substring(0, indexOfFullStop);
+        //     accountIdText = `${firstPart}.${network}`
+        // }
+
+        setOpenAccountStatus(true)
+
+        const api = await checkAccount({
+            accountId: accountIdText
+        })
 
         const response = await api.json()
 
         const responseStatus = response.status
 
         if (!responseStatus) {
-            alert(response.error[0].message)
             toast.error(response.error[0].message, {
-                position: toast.POSITION.TOP_RIGHT
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 8000
+            });
+            setAccountStatus(false)
+            return;
+        }
+
+        setAccountStatus(true)
+        return;
+    }
+
+    const handleCreateAccount = async() => {
+        if(!accountId) {
+            toast.error("provide account ID", ), {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 8000
+            };
+            return;
+        }
+
+        const api = await createNewWallet({
+            accountId: accountIdText, 
+            token: token
+        })
+
+        const response = await api.json()
+
+        const responseStatus = response.status
+
+        if (!responseStatus) {
+            toast.error(response.error[0].message, {
+                position: toast.POSITION.TOP_RIGHT,
+                autoClose: 8000
             });
             return;
         }
 
-        alert("account created successfully")
         toast.success('account created successfully', {
-            position: toast.POSITION.TOP_RIGHT
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 8000
         });
         return;
     }
@@ -58,8 +117,15 @@ export const CreateNewAccountId = () => {
                 <p id='warning'>Enter an Account ID to use with your NEAR account. Your Account ID will be used for all NEAR operations, including sending and receiving assets.</p>
                 <div id='accout-input'>
                     <label htmlFor="">Account ID</label>
-                    <input type="text" placeholder='yourname.testnet' value={accountId} onChange={(e) => setAccountId(e.target.value)} />
-                    <p>Congrats! wale.testnet is available.</p>
+                    <input type="text" placeholder='yourname.testnet' value={accountId} onChange={(e) => accountInputHandler(e)} onKeyUp={checkAccountExist}/>
+                    {
+                        openaAccountStatus? 
+                        accountstatus? 
+                        <p style={{ color: 'blue' }}>Congrats! {accountIdText} is available.</p>
+                        :<p style={{ color: 'red' }}>{accountIdText} is taken. Try something else</p>
+                        : ''
+                    }
+                    {/* <p>Congrats! wale.testnet is available.</p> */}
                 </div>
                 <div id='account-warning'>
                     <ul>
