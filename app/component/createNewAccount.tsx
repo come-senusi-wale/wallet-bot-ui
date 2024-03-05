@@ -136,7 +136,7 @@ export const CreateNewAccountId = () => {
                     </ul>
                     <ul>
                         <p>Your account ID CANNOT contain::</p>
-                        <li>Characters "@" or "."</li>
+                        <li>Characters &quot;@&quot; or &quot;.&quot;</li>
                         <li>Fewer than 2 characters</li>
                         <li>More than 64 characters (including .testnet)</li>
                     </ul>
