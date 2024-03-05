@@ -33,3 +33,16 @@ export const checkAccount = async(body: any) => {
 
     return response
 }
+
+export const exportAccount = async(body: any) => {
+    const response = await fetch(`${baseUrl}/export_account`, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        // Add any other headers as needed
+        },
+        body: JSON.stringify(body),
+    });
+
+    return response
+}
