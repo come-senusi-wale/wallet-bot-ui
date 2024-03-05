@@ -1,5 +1,5 @@
-import { Nav } from "@/component/nav";
-import { CreateNewAccountId } from "@/component/createNewAccount";
+import { Nav } from "@/app/component/nav";
+import { CreateNewAccountId } from "@/app/component/createNewAccount";
 
 export default function CreateAccount() {
 

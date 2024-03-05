@@ -14,8 +14,6 @@ export const SignUp = () => {
     const [password, setPassword] = useState('')
 
     const handleSubmit = async () => {
-        console.log('query', queryParams)
-        console.log('token', token)
         if(!email) {
             toast.error("provide email", ), {
                 position: toast.POSITION.TOP_RIGHT,
@@ -65,9 +63,6 @@ export const SignUp = () => {
             autoClose: 8000
         });
         return;
-        
-    
-    
     }
 
     return(<>

@@ -1,5 +1,5 @@
-import { Nav } from "@/component/nav";
-import { SignUp } from "@/component/signup";
+import { Nav } from "@/app/component/nav";
+import { SignUp } from "@/app/component/signup";
 
 export default function Registraion() {
 

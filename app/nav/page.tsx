@@ -1,4 +1,4 @@
-import { Nav } from "@/component/nav";
+import { Nav } from "@/app/component/nav";
 export default function Navbar() {
 
     return(
