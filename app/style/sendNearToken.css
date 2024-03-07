@@ -29,6 +29,37 @@ input:focus{
     outline: none;
 }
 
+#to-input p, #amount-input p{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+#asset{
+    background-color: rgb(250, 250, 250);
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#asset, #near{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#near-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+#near-img .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
 #submit-btn{
     text-align: center;
     background-color: rgb(21, 130, 227);
@@ -43,27 +74,4 @@ input:focus{
 #submit-btn:hover{
     opacity: 0.7;
     background-color: rgba(21, 130, 227, 0.7);
-}
-
-#secret-key{ 
-   overflow-wrap: break-word;
-   position: relative;
-}
-
-#secret-key button{
-   position: absolute;
-   right: 0px;
-   top: -30px;
-   z-index: 100;
-   font-size: 20px;
-   color: rgba(21, 130, 227, 0.7);
-}
-
-#secret-key p {
-    text-align: center;
-    font-size: 12px;
-}
-
-#secret-key  span{
-    color: rgba(21, 130, 227, 0.7);
 }
