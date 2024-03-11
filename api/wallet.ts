@@ -46,3 +46,42 @@ export const exportAccount = async(body: any) => {
 
     return response
 }
+
+export const checkValidAccount = async(body: any) => {
+    const response = await fetch(`${baseUrl}/check_validity_account`, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        // Add any other headers as needed
+        },
+        body: JSON.stringify(body),
+    });
+
+    return response
+}
+
+export const getAccountNearBalance = async(body: any) => {
+    const response = await fetch(`${baseUrl}/get_account_near_balance`, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        // Add any other headers as needed
+        },
+        body: JSON.stringify(body),
+    });
+
+    return response
+}
+
+export const sendNearToken = async(body: any) => {
+    const response = await fetch(`${baseUrl}/send_near_token`, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        // Add any other headers as needed
+        },
+        body: JSON.stringify(body),
+    });
+
+    return response
+}

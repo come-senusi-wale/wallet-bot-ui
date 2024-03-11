@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "@/public/image/logo.jpg";
+import logo from "@/public/image/builogo.jpeg";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Image from 'next/image';
 import  "../style/nav.css";

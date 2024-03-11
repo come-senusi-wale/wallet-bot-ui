@@ -42,18 +42,6 @@ export const CreateNewAccountId = () => {
             return;
         }
 
-        // let accountIdText = accountId
-
-        // const indexOfFullStop = accountId.indexOf('.');
-
-        // if (indexOfFullStop < 1) {
-        //     accountIdText = `${accountId}.${network}`
-        // }else{
-        //     // Get the first part of the word before the full stop
-        //     const firstPart = accountId.substring(0, indexOfFullStop);
-        //     accountIdText = `${firstPart}.${network}`
-        // }
-
         setOpenAccountStatus(true)
 
         const api = await checkAccount({

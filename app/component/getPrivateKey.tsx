@@ -66,7 +66,6 @@ export const GetPrivateKey = () => {
             });
             return;
         }
-        console.log('pe', response.data.data.privateKey)
 
         setPrivateKey(response.data.data.privateKey)
         setShowPrivateKey(true)
