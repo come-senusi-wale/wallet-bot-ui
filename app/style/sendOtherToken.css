@@ -29,7 +29,7 @@ input:focus{
     outline: none;
 }
 
-#to-input p, #amount-input p, #from-input p{
+#to-input p, #amount-input p{
     font-size: 12px;
     margin-bottom: 5px;
 }
