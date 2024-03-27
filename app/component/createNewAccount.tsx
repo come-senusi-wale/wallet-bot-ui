@@ -53,10 +53,10 @@ export const CreateNewAccountId = () => {
         const responseStatus = response.status
 
         if (!responseStatus) {
-            toast.error(response.error[0].message, {
-                position: toast.POSITION.TOP_RIGHT,
-                autoClose: 8000
-            });
+            // toast.error(response.error[0].message, {
+            //     position: toast.POSITION.TOP_RIGHT,
+            //     autoClose: 8000
+            // });
             setAccountStatus(false)
             return;
         }
