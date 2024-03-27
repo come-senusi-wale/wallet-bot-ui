@@ -121,7 +121,6 @@ export const SendNearToken = () => {
 
     useEffect( () =>{
         setFromAccount(accountId!)
-        // getBalance()
     }, [])
 
     useEffect( () => {

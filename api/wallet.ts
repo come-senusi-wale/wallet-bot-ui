@@ -1,6 +1,7 @@
 // import { axiosInstance } from "./axios"
 
-export const baseUrl = 'http://localhost:7000/api'
+// export const baseUrl = 'http://localhost:7000/api'
+export const baseUrl = 'https://build-africa-wallet-server.vercel.app/api'
 
 // export const createWallet = (body: any) => {
 //     return axiosInstance().post("/create_account", body);
